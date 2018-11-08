@@ -4,15 +4,14 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
        http://dubbo.apache.org/schema/dubbo http://dubbo.apache.org/schema/dubbo/dubbo.xsd">
 
-    <dubbo:application name="ac-provider"/>
+    <dubbo:application name="role-provider"/>
 
     <dubbo:registry protocol="zookeeper" address="192.168.0.108:2181,192.168.0.109:2181,192.168.0.110:2181"/>
 
-    <dubbo:protocol name="dubbo" port="9000"/>
+    <dubbo:protocol name="dubbo" port="9001"/>
 
-    <bean id="acService" class="com.sundy.ac.service.AcServiceImpl"/>
+    <bean id="roleService" class="com.sundy.role.service.RoleServiceImpl"/>
 
-    <dubbo:service interface="com.sundy.ac.api.AcService" ref="acService"/>
+    <dubbo:service interface="com.sundy.role.api.RoleService" ref="roleService"/>
 
-    <dubbo:reference id="roleService" interface="com.sundy.role.api.RoleService"/>
 </beans>

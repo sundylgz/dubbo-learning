@@ -89,7 +89,7 @@
     -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <!--指定mapper扫描的包-->
-        <property name="basePackage" value="com.sundy.ac.mapper"></property>
+        <property name="basePackage" value="com.sundy.role.mapper"></property>
     </bean>
 
     <!-- 事务相关控制 -->
