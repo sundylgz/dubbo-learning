@@ -1,0 +1,17 @@
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://dubbo.apache.org/schema/dubbo"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+       http://dubbo.apache.org/schema/dubbo http://dubbo.apache.org/schema/dubbo/dubbo.xsd">
+
+    <dubbo:application name="ac-provider"/>
+
+    <dubbo:registry protocol="zookeeper" address="192.168.0.108:2181,192.168.0.109:2181,192.168.0.110:2181"/>
+
+    <dubbo:protocol name="dubbo" port="9000"/>
+
+    <bean id="acService" class="com.sundy.ac.service.AcServiceImpl"/>
+
+    <dubbo:service interface="com.sundy.ac.api.AcService" ref="acService"/>
+
+</beans>
