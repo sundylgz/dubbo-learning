@@ -14,5 +14,5 @@
 
     <dubbo:service interface="com.sundy.ac.api.AcService" ref="acService"/>
 
-    <dubbo:reference id="roleService" interface="com.sundy.role.api.RoleService"/>
+    <dubbo:reference id="roleService" interface="com.sundy.role.api.RoleService" check="false"/>
 </beans>
