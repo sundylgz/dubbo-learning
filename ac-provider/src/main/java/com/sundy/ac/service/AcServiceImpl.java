@@ -21,11 +21,6 @@ public class AcServiceImpl implements AcService {
 
     @Override
     public User getUserByUserName(String userName) {
-        try {
-            Thread.sleep(10L);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("userName", userName);
         Role role = roleService.getRole(1L);
