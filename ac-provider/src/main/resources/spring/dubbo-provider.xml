@@ -10,9 +10,21 @@
 
     <dubbo:protocol name="dubbo" port="9000"/>
 
-    <bean id="acService" class="com.sundy.ac.service.AcServiceImpl"/>
+    <dubbo:monitor protocol="registry"/>
 
-    <dubbo:service interface="com.sundy.ac.api.AcService" ref="acService"/>
+    <!--多版本发布-->
+    <bean id="acService01" class="com.sundy.ac.service.AcServiceImpl"/>
 
-    <dubbo:reference id="roleService" interface="com.sundy.role.api.RoleService" check="false"/>
+    <bean id="acService02" class="com.sundy.ac.service.AcServiceImplV2"/>
+
+
+    <dubbo:service interface="com.sundy.ac.api.AcService" ref="acService01" version="1.0.0">
+
+    </dubbo:service>
+
+    <dubbo:service interface="com.sundy.ac.api.AcService" ref="acService02" version="2.0.0">
+
+    </dubbo:service>
+
+    <dubbo:reference id="roleService" interface="com.sundy.role.api.RoleService"/>
 </beans>
